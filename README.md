@@ -17,11 +17,19 @@ mvn spring-boot:run
 
 API Exposed:
 GET http://localhost:8085/hotels/all
+
 POT http://localhost:8085/hotels
+
 POST http://localhost:8085/hotels
+
 DELETE http://localhost:8085/hotels
+
 GET http://localhost:8085/hotels/{id}
+
 GET http://localhost:8085/hotels/price/{maxPrice}
+
 GET http://localhost:8085/hotels/address/city
+
 GET http://localhost:8085/hotels/address/country/{country}
+
 GET http://localhost:8085/hotels/recommended
