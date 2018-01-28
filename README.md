@@ -52,10 +52,10 @@ GET http://localhost:8085/hotels/recommended
 #### Swagger-UI:
 ALl the api end-points can be accessed via swagger-ui once the application comes up 
 
-..* Swagger-ui Url:
+. Swagger-ui Url:
 
 http://localhost:8091/swagger-ui.html
 
-..* Api docs:
+. Api docs:
 
 http://localhost:8091/v2/api-docs
