@@ -32,12 +32,12 @@ GET http://localhost:8085/hotels/{id}
 
 GET http://localhost:8085/hotels/price/{maxPrice}
 
-Find all the Hotels in a country:
-
 GET http://localhost:8085/hotels/address/city
 
-Find all the Hotels with maximum priceperNight is 150 and having atleast one rating greater than 5:
+Find all the Hotels in a country:
 
-GET http://localhost:8085/hotels/address/country/{country}
+http://localhost:8085/hotels/address/country/{country}
+
+Find all the Hotels with maximum priceperNight is 150 and having atleast one rating greater than 5:
 
 GET http://localhost:8085/hotels/recommended
