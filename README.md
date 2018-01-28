@@ -8,6 +8,12 @@ Pre-requesits:
 
 Up and running instance of MongoDb. If you do not have MongoDB installed on your machine please follow the link https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/. This link provides step by step installation guide.
 
+Start the Mongodb database:
+
+Go to the location where mongodb data folder is created.In my system the location is /Users/vinayanayak/data-mongodb/mongodb/data/db and start the service
+
+mongod --dbpath=.
+
 Build the service:
 
 mvn clean install
