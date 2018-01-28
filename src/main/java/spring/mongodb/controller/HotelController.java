@@ -14,44 +14,60 @@ import org.springframework.web.bind.annotation.RestController;
 
 import com.querydsl.core.types.dsl.BooleanExpression;
 
+import io.swagger.annotations.Api;
+import io.swagger.annotations.ApiOperation;
+import io.swagger.annotations.ApiResponse;
+import io.swagger.annotations.ApiResponses;
 import spring.mongodb.domain.Hotel;
 import spring.mongodb.domain.QHotel;
 import spring.mongodb.repository.HotelRepository;
 
 @RestController
 @RequestMapping("/hotels")
+@Api(value="hotel", description="Rest end points for get all hotels, add hotel, update hotel, get hotel by Id, get hotel by city, get hotel by country, get hotel by minimum rating and maximum price per night")
 public class HotelController {
 	
 	@Autowired
 	private HotelRepository repository;
 
-	@GetMapping("/all")
+	@ApiOperation(value = "Get a list of all the hotels", response = Iterable.class)
+	@ApiResponses(value = { @ApiResponse(code = 200, message = "Successfully retrieved list"),
+			@ApiResponse(code = 401, message = "You are not authorized to view the resource"),
+			 @ApiResponse(code = 403, message = "Accessing the resource you were trying to reach is forbidden"),
+	            @ApiResponse(code = 404, message = "The resource you were trying to reach is not found")
+    })
+	@GetMapping(produces = "application/json")
 	public List<Hotel> getAllHotel(){
 		List<Hotel> hotels = repository.findAll();
 		return hotels;
 	}
 	
+	@ApiOperation(value = "Update a hotel", response = Iterable.class)
 	@PutMapping
-	public void addHotel(@RequestBody Hotel hotel) {
+	public void updateHotel(@RequestBody Hotel hotel) {
 		repository.insert(hotel);
 	}
 	
+	@ApiOperation(value = "Add a hotel", response = Iterable.class)
 	@PostMapping
-	public void updateHotel(@RequestBody Hotel hotel) {
+	public void addHotel(@RequestBody Hotel hotel) {
 		repository.save(hotel);
 	}
 	
+	@ApiOperation(value = "Delete a hotel", response = Iterable.class)
 	@DeleteMapping("/{id}")
 	public void deleteHotel(@PathVariable("id") String id) {
 		repository.delete(id);
 	}
 	
-	@GetMapping("/{id}")
+	@ApiOperation(value = "Find a hotel by Id", response = Iterable.class)
+	@GetMapping(value = "/{id}", produces = "application/json")
 	public Hotel findById(@PathVariable("id") String id) {
 		return repository.findById(id);
 	}
 	
-	@GetMapping("/price/{maxPrice}")
+	@ApiOperation(value = "Find all the hotels by given price less than the price per night")
+	@GetMapping(value = "/price/{maxPrice}" , produces = "application/json")
 	public List<Hotel> findByPricePerNight(@PathVariable("maxPrice") int price){
 		return repository.findByPricePerNightLessThan(price);
 	}
@@ -61,7 +77,8 @@ public class HotelController {
 	 * @param city
 	 * @return
 	 */
-	@GetMapping("/address/{city}")
+	@ApiOperation(value = "Find all the hotels by given city")
+	@GetMapping(value = "/address/{city}", produces = "application/json")
 	public List<Hotel> findByHotelsByCity(@PathVariable("city") String city){
 		return repository.findByCity(city);
 	}
@@ -72,7 +89,8 @@ public class HotelController {
 	 * @param country
 	 * @return
 	 */
-	@GetMapping("/address/country/{country}")
+	@ApiOperation(value = "Find all the hotels by given country")
+	@GetMapping(value = "/address/country/{country}", produces = "application/json")
 	public List<Hotel> findByHotelsByCountry(@PathVariable("country") String country){
 		// create a query class (QHotel)
         QHotel qHotel = new QHotel("hotel");
@@ -90,7 +108,8 @@ public class HotelController {
 	 * Find all the Hotels with maximum priceperNight is 150 and having atleast one rating greater than 5
 	 * @return
 	 */
-	@GetMapping("/recommended")
+	@ApiOperation(value = "Find all the Hotels with maximum priceperNight is 150 and having atleast one rating greater than 5")
+	@GetMapping(value = "/recommended", produces = "application/json")
     public List<Hotel> getRecommended(){
         final int maxPrice = 150;
         final int minRating = 5;
