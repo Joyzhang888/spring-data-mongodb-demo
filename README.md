@@ -4,11 +4,11 @@ Mongo DB with Spring Boot Application using Spring Data MongoDB
 
 This application helps you to integrate your spring boot application with MongoDB
 
-Pre-requesits:
+#### Pre-requesits:
 
 Up and running instance of MongoDb. If you do not have MongoDB installed on your machine please follow the link https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/. This link provides step by step installation guide.
 
-Start the Mongodb database:
+#### Start the Mongodb database:
 
 Go to the location where mongodb data/db folder is created.In my system the location is /Users/vinayanayak/data-mongodb/mongodb/data/db and start the service
 
@@ -20,11 +20,11 @@ mvn clean install
 
 Once the build is successful you can notice the query classes for your pojos.For example for Hotel.java you can observe that QHotel.java is generated under target/generated-sources/annotations directory
 
-Start the service:
+#### Start the service:
 
 mvn spring-boot:run
 
-REST Endpoints:
+#### REST Endpoints:
 
 GET http://localhost:8085/hotels/all
 
