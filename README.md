@@ -1,6 +1,6 @@
 # spring-data-mongodb-demo
 
-Mongo DB with Spring Boot Application using Spring Data MongoDB 
+Spring Boot Application using Spring Data and  MongoDB 
 
 This application helps you to integrate your spring boot application with MongoDB
 
@@ -47,3 +47,15 @@ http://localhost:8085/hotels/address/country/{country}
 Find all the Hotels with maximum priceperNight is 150 and having atleast one rating greater than 5:
 
 GET http://localhost:8085/hotels/recommended
+
+
+#### Swagger-UI:
+ALl the api end-points can be accessed via swagger-ui once the application comes up 
+
+..* Swagger-ui Url:
+
+http://localhost:8091/swagger-ui.html
+
+..* Api docs:
+
+http://localhost:8091/v2/api-docs
