@@ -18,7 +18,7 @@ mvn spring-boot:run
 API Exposed:
 GET http://localhost:8085/hotels/all
 
-POT http://localhost:8085/hotels
+PUT http://localhost:8085/hotels
 
 POST http://localhost:8085/hotels
 
