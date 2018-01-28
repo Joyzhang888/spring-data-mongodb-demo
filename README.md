@@ -4,7 +4,7 @@ Mongo DB with Spring Boot Application using Spring Data MongoDB
 
 This application helps you to integrate your spring boot application with MongoDB
 
-#### Pre-requesits:
+#### Pre-requisites:
 
 Up and running instance of MongoDb. If you do not have MongoDB installed on your machine please follow the link https://docs.mongodb.com/manual/tutorial/install-mongodb-on-os-x/. This link provides step by step installation guide.
 
