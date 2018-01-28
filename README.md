@@ -10,7 +10,7 @@ Up and running instance of MongoDb. If you do not have MongoDB installed on your
 
 Start the Mongodb database:
 
-Go to the location where mongodb data folder is created.In my system the location is /Users/vinayanayak/data-mongodb/mongodb/data/db and start the service
+Go to the location where mongodb data/db folder is created.In my system the location is /Users/vinayanayak/data-mongodb/mongodb/data/db and start the service
 
 mongod --dbpath=.
 
